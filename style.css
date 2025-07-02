@@ -372,3 +372,74 @@ nav.nav-right a:hover::after {
   background-color: #c88e8e;
 }
 
+/* ===== Styles specific to the PSR project page ===== */
+.project-page h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-left: 3.5rem;
+}
+
+/* Make the access button smaller */
+.project-page .access_button img {
+  width: 150px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10rem;
+  padding: 2rem;
+}
+
+/* Layout for the PSR project section */
+.project-page .project-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* top-aligned */
+  gap: 4rem; /* space between image and about box */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-page .project-left img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-page .project-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.project-page .project-about img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-page .project-about .access_button {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.project-page .project-about .access_button img {
+  width: 150px;
+  height: auto;
+}
+
+
+
+
+
+
+

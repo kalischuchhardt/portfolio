@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Me</title>
+  <title>Safe Steps</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito&family=Playfair+Display&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   <!-- Link to your stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="project-page"> <!-- added class here -->
 
   <!-- Header with name and navigation -->
   <header>
@@ -21,14 +21,32 @@
 
     <nav class="nav-right">
       <a href="about.html">About</a>
-      <a href="index.html#projects">Projects</a>
+      <a href="index.html#projects" class="active">Projects</a>
       <a href="contact.html">Contact Me</a>
     </nav>
   </header>
 
-  <main>
-   
-  </main>
+  <div class="project-header">
+    <h1>Safe Steps</h1>
+  </div>
+
+  <main class="project-layout">
+  <div class="project-left">
+    <a href="https://devpost.com/software/safe-steps-s1orwe?_gl=1*5c4qio*_gcl_au*MTEzNjk2NTA0MC4xNzUwOTc2Nzky*_ga*MjgzOTc0NTk1LjE3MzkxMDQxNjI.*_ga_0YHJK3Y10M*czE3NTA5NzY3OTIkbzQkZzEkdDE3NTA5NzY4MDEkajUxJGwwJGgw" target="_blank">
+        <img src="src/safesteps.svg" alt="safesteps" />
+    </a>
+  </div>
+
+  <div class="project-about">
+    <img src="src/safestepstextarea.svg" alt="safesteps text area" />
+    <div class="access_button">
+    <a href="https://github.com/Ramia1205/SafeSteps" target="_blank" class="access-button">
+      <img src="src/access.svg" alt="Access Button" />
+    </a>
+  </div>
+  </div>
+</main>
+
 
   <!-- Footer -->
   <footer>
