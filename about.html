@@ -2,23 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito&family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- Link to your stylesheet -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito&family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header with name and navigation -->
   <header>
     <div class="nav-left">
-      <a href="index.html" onclick="location.reload()">Kali Schuchhardt</a>
+      <a href="index.html">Kali Schuchhardt</a>
     </div>
-
     <nav class="nav-right">
       <a href="about.html" class="active">About</a>
       <a href="index.html#projects">Projects</a>
@@ -26,33 +22,38 @@
     </nav>
   </header>
 
-    <main class="about-section">
-    <div class="about-text">
-        <h1>About Me</h1>
-        <p>I am a passionate 4th-year Computer Engineering student at the University of Florida with a strong interest in Object-Oriented Programming, Digital Circuits, and Digital Arts and Sciences. I have experience working with multiple programming languages, including Python, C/C++, Java, VHDL, and R, and I am certified in SolidWorks. Additionally, I have hands-on experience with tools such as Intel Quartus Prime and Waveforms.  Having lived in Japan, I speak Japanese, which has broadened my cultural perspective and adaptability. I enjoy solving complex problems and building innovative solutions, whether through designing digital circuits or developing software applications. I am actively seeking internship opportunities where I can apply my technical skills and continue to grow as an engineer.</p>
-         <a href="src/KaliSchuchhardtResumeJune2025.pdf" target="_blank" rel="noopener noreferrer">
-            <img src="src/resume.svg" alt="Resume" />
-         </a>
-    </div>
+  <main class="about-section">
+  <div class="about-text fade-in-up delay-1">
+    <h1>About Me</h1>
+    <p>
+      I am a passionate 4th-year Computer Engineering student at the University of Florida with a strong interest in Object-Oriented Programming, Digital Circuits, and Digital Arts and Sciences. I have experience working with multiple programming languages, including Python, C/C++, Java, VHDL, and R, and I am certified in SolidWorks. Additionally, I have hands-on experience with tools such as Intel Quartus Prime and Waveforms. Having lived in Japan, I speak Japanese, which has broadened my cultural perspective and adaptability. I enjoy solving complex problems and building innovative solutions, whether through designing digital circuits or developing software applications. I am actively seeking internship opportunities where I can apply my technical skills and continue to grow as an engineer.
+    </p>
+    <a href="src/KaliSchuchhardtResumeJune2025.pdf"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="fade-in-up delay-2 resume-button">
+   <img src="src/resume.svg" alt="Resume" />
+</a>
 
-    <div class="about-image">
-        <img src="src/headshot.svg" alt="Headshot" class="headshot-img" />
-    </div>
-    </main>
-  <!-- Footer -->
+
+  </div>
+  <div class="about-image fade-in-up delay-3">
+    <img src="src/headshot.svg" alt="Headshot" class="headshot-img" />
+  </div>
+  </main>
+
   <footer>
     <div class="icon-container">
-      <a href="https://github.com/kalischuchhardt" target="_blank">
+      <a href="https://github.com/kalischuchhardt" target="_blank" rel="noopener noreferrer">
         <img src="src/github.svg" alt="GitHub" />
       </a>
-      <a href="https://www.linkedin.com/in/kalischuchhardt984/" target="_blank">
+      <a href="https://www.linkedin.com/in/kalischuchhardt984/" target="_blank" rel="noopener noreferrer">
         <img src="src/linkedin.svg" alt="LinkedIn" />
       </a>
       <a href="mailto:kalischuchhardt@ufl.edu">
         <img src="src/mail.svg" alt="Email" />
       </a>
     </div>
-
     <div class="name-image-container">
       <a href="index.html">
         <img src="src/name.svg" alt="Kali Schuchhardt Home" class="name-image" />
@@ -60,7 +61,6 @@
     </div>
   </footer>
 
-  <!-- Optional JS file -->
   <script src="script.js"></script>
 </body>
 </html>

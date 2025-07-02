@@ -1,13 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito&family=Playfair+Display&display=swap');
 
+/* ===== GLOBAL RESET ===== */
 body, html {
-  background-color: #F9FAFF;
-  font-family: 'Playfair Display', 'Nunito', sans-serif;
+  margin: 0;
   padding: 0;
   height: 100%;
-  margin: 0;
   scroll-behavior: smooth;
-   padding-bottom: 10rem;
+  background-color: #F9FAFF;
+  font-family: 'Playfair Display', 'Nunito', sans-serif;
+  padding-bottom: 10rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes footerFadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  background-color: #F9FAFF;
+  color: #25282B;
+  padding: 2rem;
+  text-align: left;
+  overflow: visible;
+  padding-bottom: 0;
 }
 
 header h1,
@@ -15,73 +63,46 @@ header h2 {
   display: block;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   margin: 0;
-  margin-top: 2rem;
-  font-family: 'Playfair Display', serif;
   margin-left: 3.4rem;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
 }
 
 header h1 {
-  font-size: 50px;
-  font-weight: 700;
+  animation-delay: 0.3s;
 }
 
 header h2 {
-  font-size: 50px;
-  font-weight: 700;
   margin-top: 0.5rem;
+  animation-delay: 0.6s;
 }
 
-
-.blurb {
-  font-family: 'Nunito', sans-serif;
-  color: #828282;
-  font-size: 24px;
-  font-weight: 400;
-  margin-left: 5.1rem;
-
-  max-width: 45%;      /* limits width to 45% of the viewport */
-  /* or use max-width: 600px; for a fixed width */
-
-  /* Optional: add some spacing around */
-  margin-top: 0.25rem;
-  /* Optional: center it if you want */
-  /* margin-left: auto;
-     margin-right: auto; */
-}
-
-header {
-  position: relative;
-  background-color: #F9FAFF;
-  color: #25282B;
-  padding: 2rem;
-  text-align: left;
-  overflow: visible;  /* allow overflow if needed */
-}
-
-/* Style the SVG as a big background image on top right */
 #header-svg {
   position: absolute;
   top: 0;
   right: 0;
-  width: 45%;   /* Make it bigger, adjust as you want */
+  width: 45%;
   height: auto;
-  z-index: 0;     /* Behind nav and other text */
-  opacity: 1;  /* Optional: make it faint so text is clear */
+  z-index: 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s; /* Same as header h1 */
 }
 
-/* Nav left and right get higher z-index to appear above the image */
+/* NAVIGATION */
 .nav-left, .nav-right {
   position: absolute;
   top: 1rem;
-  z-index: 1;     /* Higher than SVG */
+  z-index: 1;
 }
 
-/* Left nav stays left */
 .nav-left {
   left: 3.6rem;
 }
 
-/* Right nav stays right */
 .nav-right {
   right: 8.5rem;
 }
@@ -93,46 +114,150 @@ header {
   color: #25282B;
   text-decoration: none;
   margin-left: 30px;
+  opacity: 0; /* start hidden for animation */
+  animation: fadeInUp 1s ease forwards;
+  display: inline-block; /* shrink-wrap text */
+  max-width: none;       /* remove max-width restriction */
+  position: relative;    /* for ::after positioning */
 }
 
-.icon-container {
-  position: fixed;     /* fixed relative to viewport */
-  bottom: 20px;        /* distance from bottom of screen */
-  left: 50%;           /* start at horizontal center */
-  transform: translateX(-50%); /* shift left by half own width to center */
-  display: flex;
-  gap: 15px;           /* space between multiple icons, optional */
-  z-index: 1000;       /* keep on top */
+/* Staggered animation delays */
+.nav-left a:nth-child(1),
+.nav-right a:nth-child(1) {
+  animation-delay: 0.9s;
 }
 
-.center-container {
-  display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  height: 100vh;           /* full viewport height */
+.nav-left a:nth-child(2),
+.nav-right a:nth-child(2) {
+  animation-delay: 1.1s;
 }
 
+.nav-left a:nth-child(3),
+.nav-right a:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+/* Underline */
+.nav-right a.active::after,
+.nav-right a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;   /* matches text width */
+  height: 4px;
+  background-color: #828282;
+  border-radius: 2px;
+}
+
+/* ===== BLURB ===== */
+.blurb {
+  font-family: 'Nunito', sans-serif;
+  color: #828282;
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 45%;
+  margin: 0.25rem 0 0 5.1rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.9s; /* Play after h2 */
+}
+
+/* ===== BUTTONS ===== */
 .button-row {
-  margin-left: 5.1rem;       /* Align with blurb */
-  max-width: 45%;            /* Same max width as blurb */
-  margin-top: 0.5rem;        /* Space above */
-  display: flex;             /* Put side-by-side */
-  gap: 15px;                 /* Space between buttons */
-  align-items: center;       /* Vertically center */
+  margin-left: 5.1rem;
+  max-width: 45%;
+  margin-top: 0.5rem;
   margin-bottom: 12rem;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.2s; /* after blurb */
 }
 
 .project-button img,
 .linkedinbutton-svg img {
-  max-height: 36px;          /* Adjust height of both SVG buttons */
+  max-height: 36px;
   width: auto;
   display: block;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
- 
+
+.project-button img:hover,
+.linkedinbutton-svg img:hover {
+  transform: scale(1.1);
+}
+
+/* ===== NEW BUTTON ANIMATIONS ===== */
+.send-button,
+.project-page .access_button img,
+.resume-button {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.send-button:hover,
+.project-page .access_button img:hover,
+.resume-button:hover {
+  transform: scale(1.1);
+}
+
+/* ===== SEND BUTTON ===== */
+.send-button {
+  width: fit-content;
+  padding: 0.6rem 1.2rem;
+  background-color: #F3DCBF;
+  color: #25282B;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Comfortaa', cursive;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* keep background + transform */
+}
+
+.send-button:hover {
+  background-color: #E5C1CD;
+  /* transform scale handled above */
+}
+
+/* ===== ACCESS BUTTON IMAGE ===== */
+.project-page .access_button img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===== RESUME BUTTON ===== */
+/* Add this class to your resume button HTML */
+.resume-button {
+  display: inline-block; /* important for transform */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.resume-button:hover {
+  transform: scale(1.1) !important;
+}
+
+/* ===== PROJECT SECTION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .projects {
   max-width: 800px;
-  margin: 2rem auto;  /* or even 4rem if you want it tighter */
+  margin: 2rem auto;
   text-align: center;
 }
 
@@ -140,51 +265,26 @@ header {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   font-size: 40px;
-  margin: 0;
-  margin-bottom: 0.5rem;  /* 👈 make this much smaller */
+  margin-bottom: 0.5rem;
 }
 
-footer {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 1000;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.name-image-container {
-  margin-top: 10px; /* Space between icons and name image */
-}
-
-.name-image {
-  max-height: 30px; /* Adjust size as needed */
-  width: auto;
+.underline-svg {
+  margin: 0 auto 2rem auto;
   display: block;
-  margin: 0 auto; /* Center horizontally */
-  cursor: pointer;
 }
 
 .project-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;              /* space between each card */
-  margin-top: 2rem;       /* small space from heading */
-  padding: 0 1rem;
-  padding-bottom: 10rem;
+  gap: 4rem;
+  margin-top: 2rem;
+  padding: 0 1rem 10rem 1rem;
 }
 
-
 .project-card {
-  text-decoration: none;     /* no underline */
-  color: inherit;            /* inherit text color if needed */
+  text-decoration: none;
+  color: inherit;
   display: block;
   width: 100%;
   max-width: 900px;
@@ -199,139 +299,67 @@ footer {
   transform: translateY(-6px);
 }
 
-
 .project-card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.underline-svg {
-  margin-top: 0rem;      /* 👈 remove top margin */
-  margin-bottom: 2rem;   /* optional space below the rectangle */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/* ===== ABOUT AND CONTACT SECTION ===== */
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
 }
 
-
-@media (max-width: 768px) {
-  header h1,
-  header h2 {
-    font-size: 32px;
-    margin-left: 1.5rem;
-  }
-
-  .blurb {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 18px;
-  }
-
-  .button-row {
-    max-width: 90%;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .nav-left,
-  .nav-right {
-    position: static;
-    text-align: center;
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .nav-right a, .nav-left a {
-    font-size: 16px;
-    margin: 0 10px;
-  }
-
-  .projects h3 {
-    font-size: 32px;
-  }
-
-  .project-card {
-    max-width: 95%;
-  }
-
-  .footer {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* Add delays to stagger fade in */
+.fade-in-up.delay-1 {
+  animation-delay: 1.0s;
 }
 
-.about-section {
+.fade-in-up.delay-2 {
+  animation-delay: 1.3s;
+}
+
+.fade-in-up.delay-3 {
+  animation-delay: 1.6s;
+}
+
+.about-section, .contact-section {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   max-width: 900px;
-  margin: 6rem auto 0 auto;
-  padding: 0 2rem;
-  flex-wrap: wrap;
-  margin-left: 3.5rem;
+  margin-left: 5rem;
+  margin-right: auto;
+  padding-left: 0;
+  gap: 2rem;
 }
 
-
-.about-text {
-  flex: 1.2;
+.about-text, .contact-text {
+  flex: 0 0 55%;
   min-width: 300px;
+  margin-left: 0;
 }
 
-.about-image {
-  flex: 1;
-  display: flex;
-  justify-content: center; /* 👈 centers the image in its half */
+.about-image, .contact-image {
+  flex: 0 0 35%;
   min-width: 250px;
-  margin-top: -4rem;
-  margin-right: -25rem;
+  margin-left: 12rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.headshot-img {
-  max-width: 450px;   /* set a specific size */
-  width: 100%;
-  height: auto;
+.about-image img.headshot-img {
+  margin-top: 2rem; /* Adjust this value as needed */
 }
 
-nav.nav-right a {
-  position: relative;
-  padding-bottom: 4px; /* space for the underline */
-  text-decoration: none;
-  color: inherit;
+
+.about-image img, .contact-image img {
+  animation: float 4s ease-in-out infinite;
 }
 
-nav.nav-right a.active::after,
-nav.nav-right a:hover::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;             /* thickness of rectangle */
-  background-color: #828282; /* your highlight color */
-  border-radius: 2px;      /* rounded edges if you want */
-}
-
-@media (max-width: 768px) {
-  .headshot-img {
-    max-width: 300px;
-  }
-
-  .about-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-}
-
+/* ===== CONTACT FORM ===== */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -354,13 +382,15 @@ nav.nav-right a:hover::after {
   border-radius: 6px;
   background-color: #fff;
   resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .send-button {
   width: fit-content;
   padding: 0.6rem 1.2rem;
-  background-color: #D8A5A5;
-  color: #fff;
+  background-color: #F3DCBF;
+  color: #25282B;
   border: none;
   border-radius: 6px;
   font-family: 'Comfortaa', cursive;
@@ -369,36 +399,20 @@ nav.nav-right a:hover::after {
 }
 
 .send-button:hover {
-  background-color: #c88e8e;
+  background-color: #E5C1CD;
 }
 
-/* ===== Styles specific to the PSR project page ===== */
+/* ===== PROJECT PAGE ===== */
 .project-page h1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1rem 2rem;
   margin-left: 3.5rem;
 }
 
-/* Make the access button smaller */
-.project-page .access_button img {
-  width: 150px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 10rem;
-  padding: 2rem;
-}
-
-/* Layout for the PSR project section */
 .project-page .project-layout {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* top-aligned */
-  gap: 4rem; /* space between image and about box */
+  align-items: flex-start;
+  gap: 4rem;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -426,20 +440,250 @@ nav.nav-right a:hover::after {
   display: block;
 }
 
-.project-page .project-about .access_button {
+.project-page .access_button {
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
 }
 
-.project-page .project-about .access_button img {
-  width: 150px;
+.project-page .access_button img {
+  max-width: 100%;
   height: auto;
 }
 
+/* ===== FOOTER ===== */
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1000;
+  animation: footerFadeInOut 15s ease forwards;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.name-image-container {
+  margin-top: 10px;
+}
+
+.name-image {
+  max-height: 30px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 768px) {
+  header h1,
+  header h2 {
+    font-size: 32px;
+    margin-left: 1.5rem;
+  }
+
+  .project-page .project-layout {
+  padding-bottom: 10rem;
+  }
+
+  .blurb,
+  .button-row {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-left,
+  .nav-right {
+    position: static;
+    text-align: center;
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .nav-right a, .nav-left a {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .projects h3 {
+    font-size: 32px;
+  }
+
+  .project-card {
+    max-width: 95%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .headshot-img {
+    max-width: 300px;
+  }
+
+  .about-section,
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-text,
+  .contact-text {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .about-image,
+  .contact-image {
+    margin: 0;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .project-page .project-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #header-svg {
+    width: 100%;
+    position: static;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+  body, html {
+    background-color: #333;
+    color: #E0E0E0;
+  }
+
+  header {
+    background-color: #333;
+    color: #E0E0E0;
+  }
+
+  header h1, header h2 {
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+    color: #E0E0E0;
+  }
+
+  .nav-left a, .nav-right a {
+    color: #fff;
+  }
+
+  .nav-right a.active::after,
+  .nav-right a:hover::after {
+    background-color: #fff;
+  }
+
+  /* Make active and hovered nav text white */
+  .nav-right a.active,
+  .nav-right a:hover {
+    color: white;
+  }
+
+  .blurb {
+    color: #CCC;
+  }
+
+  .linkedinbutton-svg {
+    background-color: #E0E0E0;
+    border-radius: 6px;
+  }
+
+  .access_button {
+    background-color: #E0E0E0;
+    border-radius: 6px;
+  }
+
+  .project-card {
+    background-color: #828282;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.15);
+  }
+
+  .about-section, .contact-form {
+    color: #DDD;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #bbb;
+    border: 1px solid #ccc;
+    color: #EEE;
+    text-decoration-color: #E0E0E0;
+  }
+
+  .contact-form label {
+    color: #fff;
+  }
+
+  .send-button {
+    background-color: #F3DCBF;
+    color: #25282B;
+  }
+
+  .send-button:hover {
+    background-color: #E5C1CD;
+    color: #25282B;
+  }
+
+  footer {
+    background-color: transparent;
+  }
+
+  .icon-container a img {
+    filter: brightness(0.8) invert(1);
+  }
+
+  .name-image {
+    filter: brightness(0.8) invert(1);
+  }
+   @media (prefers-color-scheme: dark) {
+
+  .linkedinbutton-svg {
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2); /* thinner subtle border */
+}
+
+.access_button img {
+  background-color: #fff;
+  border-radius: 6px;
+  border: 0.5px solid rgba(0, 0, 0, 0.2); /* thinner subtle border */
+}
 
 
+  /* Text area images in project-about */
+  .project-about img {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 6px;
+    box-sizing: border-box;
+    /* keep existing styles */
+  }
+}
 
-
-
-
+}
