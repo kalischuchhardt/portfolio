@@ -469,7 +469,7 @@ function App() {
           >
             <BrandIcon brand="github" /> GitHub <ExternalLink size={13} aria-hidden="true" />
           </a>
-          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer"><FileText size={18} aria-hidden="true" />{ja ? "履歴書（PDF）" : "Résumé"}<ExternalLink size={13} aria-hidden="true" /></a>
+          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer"><FileText size={18} aria-hidden="true" />{ja ? "履歴書" : "Résumé"}<ExternalLink size={13} aria-hidden="true" /></a>
         </div>
         <small>© {new Date().getFullYear()} {ja ? "ケイリシュッカート" : "Kali Schuchhardt"}</small>
       </footer>
