@@ -1,5 +1,5 @@
 import { Button, Card, CardBody, Divider, Input, Textarea, Tooltip, Link } from '@heroui/react'
-import { Mail, Linkedin, Github, Twitter, Send, Phone } from 'lucide-react'
+import { Mail, Linkedin, Github, Send} from 'lucide-react'
 
 export function Contact() {
   return (
