@@ -262,9 +262,6 @@ function App() {
                 <span className="hero-name">{ja ? "ケイリシュッカート" : "Kali Schuchhardt"}<span>.</span></span>
               </h1>
               <p>{ja ? "フロリダ大学でコンピュータ工学を学ぶ5年生です。組み込みシステム、ファームウェア開発、デジタル設計、そして一貫したIoTソリューションの構築に情熱を注いでいます。" : intro}</p>
-              <p>
-                {ja ? "好奇心を原動力に、複雑な問題を思いやりのある革新的な解決策へ変えていきます。" : "Driven by curiosity, I love turning complex problems into thoughtful, innovative solutions."}
-              </p>
               <div className="actions">
                 <a className="button pink" href="#projects">
                   {ja ? "プロジェクトを見る ↗" : "Explore my projects ↗"}
