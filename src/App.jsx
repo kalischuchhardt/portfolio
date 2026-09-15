@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { ArrowUpRight, ExternalLink, Mail, Phone, Send } from "lucide-react";
+import BrandIcon from "./BrandIcon";
 import { projectsJa } from "./projects.ja";
 const projects = [
   {
@@ -182,6 +184,7 @@ function App() {
       rel="noopener noreferrer"
       aria-label={ja ? `${item.title}を開く（新しいタブ）` : `Open ${item.title} (opens in a new tab)`}
     >
+      <span className="art-external" aria-hidden="true"><ExternalLink size={18} /></span>
       {item.art === "music" ? (
         <>
           <div className="notes">♪ ♫</div>
@@ -264,10 +267,10 @@ function App() {
               <p>{ja ? "フロリダ大学でコンピュータ工学を学ぶ5年生です。組み込みシステム、ファームウェア開発、デジタル設計、そして一貫したIoTソリューションの構築に情熱を注いでいます。" : intro}</p>
               <div className="actions">
                 <a className="button pink" href="#projects">
-                  {ja ? "プロジェクトを見る ↗" : "Explore my projects ↗"}
+                  {ja ? "プロジェクトを見る" : "Explore my projects"}
                 </a>
                 <a className="button outline" href="#about">
-                  {ja ? "私について ↗" : "A little about me"}
+                  {ja ? "私について" : "A little about me"}
                 </a>
               </div>
             </div>
@@ -319,7 +322,7 @@ function App() {
                       href={`#${item.id}`}
                       aria-label={ja ? `${item.title}の詳細を見る` : `View ${item.title} project details`}
                     >
-                      {ja ? "詳細を見る" : "View project"} <span aria-hidden="true">↗</span>
+                      {ja ? "詳細を見る" : "View project"} <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   </div>
                 </article>
@@ -330,7 +333,7 @@ function App() {
             <p className="eyebrow">{ja ? "ご相談がありますか？" : "HAVE SOMETHING IN MIND?"}</p>
             <h2>{ja ? "思いやりのあるものを一緒に作りましょう。" : "Let’s make something thoughtful."}</h2>
             <a className="button outline" href="#contact">
-              {ja ? "お問い合わせ ↗" : "Get in touch ↗"}
+              {ja ? "お問い合わせ" : "Get in touch"}
             </a>
           </section>
         </main>
@@ -350,7 +353,7 @@ function App() {
 {ja ? "技術力を活かし、エンジニアとしてさらに成長できるインターンシップの機会を探しています。" : "I am actively seeking internship opportunities where I can apply my technical skills and continue to grow as an engineer."}
             </p>
             <a className="button peach" href="#contact">
-              {ja ? "つながりましょう ↗" : "Let’s connect ↗"}
+              {ja ? "つながりましょう" : "Let’s connect"}
             </a>
           </section>
           <div
@@ -381,7 +384,7 @@ function App() {
               <label htmlFor="message">{ja ? "メッセージ" : "Message"}</label>
               <textarea id="message" name="message" rows="5" required />
               <button type="submit" className="button pink">
-                {ja ? "メッセージを送信 ↗" : "Send message ↗"}
+                {ja ? "メッセージを送信" : "Send message"} <Send size={16} aria-hidden="true" />
               </button>
               <p className="form-note" role="status">
                 {ja ? ({ "Sending…": "送信中…", "Message sent! Thanks for reaching out.": "メッセージを送信しました。お問い合わせありがとうございます。", "Opening your email app as a backup…": "代わりにメールアプリを開きます…" }[status] || status) : status}
@@ -434,7 +437,7 @@ function App() {
                 </>
               )}
               <a className="button outline" href="#contact">
-                {ja ? "このプロジェクトについて問い合わせる ↗" : "Ask me about this project ↗"}
+                {ja ? "このプロジェクトについて問い合わせる" : "Ask me about this project"}
               </a>
             </section>
           </div>
@@ -451,22 +454,22 @@ function App() {
         </a>
         <span>{ja ? "好奇心を添えて、丁寧につくりました。" : "Thoughtfully built, with a little curiosity."}</span>
         <div className="social-links">
-          <a href="mailto:kalischuchhardt@ufl.edu">{ja ? "メール ↗" : "Email ↗"}</a>
+          <a href="mailto:kalischuchhardt@ufl.edu"><Mail size={18} aria-hidden="true" />{ja ? "メール" : "Email"}</a>
           <a
             href="https://www.linkedin.com/in/kalischuchhardt984"
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn ↗
+            <BrandIcon brand="linkedin" /> LinkedIn <ExternalLink size={13} aria-hidden="true" />
           </a>
           <a
             href="https://github.com/kalischuchhardt"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub ↗
+            <BrandIcon brand="github" /> GitHub <ExternalLink size={13} aria-hidden="true" />
           </a>
-          <a href="tel:+18505988546">{ja ? "電話 ↗" : "Call ↗"}</a>
+          <a href="tel:+18505988546"><Phone size={18} aria-hidden="true" />{ja ? "電話" : "Call"}</a>
         </div>
         <small>© {new Date().getFullYear()} {ja ? "ケイリシュッカート" : "Kali Schuchhardt"}</small>
       </footer>
