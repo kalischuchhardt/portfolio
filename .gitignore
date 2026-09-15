@@ -22,8 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
-=======
 
 # Environment variables
 .env
@@ -32,4 +30,3 @@ dist-ssr
 
 # IDE
 .code-workspace
->>>>>>> 52dfda50bdba255d5c4e2a4bc5f6707785122e1c
