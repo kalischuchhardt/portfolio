@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { ArrowUpRight, ExternalLink, Mail, Phone, Send } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Mail, FileText, Send } from "lucide-react";
 import BrandIcon from "./BrandIcon";
 import { projectsJa } from "./projects.ja";
 const projects = [
@@ -469,7 +469,7 @@ function App() {
           >
             <BrandIcon brand="github" /> GitHub <ExternalLink size={13} aria-hidden="true" />
           </a>
-          <a href="tel:+18505988546"><Phone size={18} aria-hidden="true" />{ja ? "電話" : "Call"}</a>
+          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer"><FileText size={18} aria-hidden="true" />{ja ? "履歴書（PDF）" : "Résumé (PDF)"}<ExternalLink size={13} aria-hidden="true" /></a>
         </div>
         <small>© {new Date().getFullYear()} {ja ? "ケイリシュッカート" : "Kali Schuchhardt"}</small>
       </footer>
