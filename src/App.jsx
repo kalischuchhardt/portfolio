@@ -231,6 +231,7 @@ function App() {
         <nav aria-label={ja ? "メインナビゲーション" : "Main navigation"}>
           {[
             ["about", ja ? "私について" : "About"],
+            ["experience", ja ? "経験" : "Experience"],
             ["projects", ja ? "プロジェクト" : "Projects"],
             ["contact", ja ? "お問い合わせ" : "Contact Me"],
           ].map(([id, label]) => (
@@ -335,6 +336,76 @@ function App() {
             <a className="button outline" href="#contact">
               {ja ? "お問い合わせ" : "Get in touch"}
             </a>
+          </section>
+        </main>
+      ) : page === "experience" ? (
+        <main className="inner shell experience-page">
+          <section className="experience-intro reveal">
+            <p className="eyebrow">{ja ? "技術とリーダーシップ" : "ENGINEERING & LEADERSHIP"}</p>
+            <h1>{ja ? "これまでの経験" : "Experience"}</h1>
+            <p>{ja ? "工学、ウェブサイト運営、そして学生組織でのリーダーシップに関する経験をご紹介します。" : "My experience in engineering, website management, and student leadership."}</p>
+          </section>
+          <section className="experience-timeline" aria-label={ja ? "活動・役職の経験" : "Roles and experience"}>
+            {[
+              {
+                id: 'corrosion', title: ja ? '腐食エンジニア（Co-Op）' : 'Corrosion Engineer (Co-Op)', category: ja ? 'エンジニアリング' : 'ENGINEERING',
+                dates: ja ? '2026年5月〜7月' : 'May 2026 – July 2026', organization: 'Colonial Pipeline', location: ja ? 'ジョージア州アルファレッタ' : 'Alpharetta, GA',
+                highlights: ja ? [
+                  '5年分のパイプラインデータを分析して高リスク地点（5 VAC超）を特定し、遠隔監視装置（RMU）の配置を最適化する交流（AC）監視プログラムを開発しました。',
+                  '過去の電流密度と出力電圧の傾向に基づいて統計的な運転警報限界を設定し、1,716台の整流器RMUの警報しきい値を標準化しました。',
+                  '仮設の陰極防食クーポンの現場試験を設計・実施し、常設設備と分極減衰の指標を比較してプローブの信頼性を検証しました。',
+                ] : [
+                  'Developed an alternating current (AC) monitoring program using five years of pipeline data to identify high-risk locations (>5 VAC) and optimize Remote Monitoring Unit (RMU) deployment.',
+                  'Standardized alarm thresholds for 1,716 rectifier RMUs, using historical current density and output voltage trends to establish statistically constrained operating alarm limits.',
+                  'Designed and executed field tests for temporary cathodic protection coupons, comparing polarization decay metrics with permanent fixtures to verify probe reliability.',
+                ],
+              },
+              {
+                id: 'webmaster', title: ja ? 'ウェブマスター' : 'Webmaster', category: ja ? 'ウェブサイト運営' : 'WEBSITE MANAGEMENT',
+                dates: ja ? '2026年5月〜現在' : 'May 2026 – Present', organization: ja ? 'Phi Sigma Rho — 工学分野の女性のためのソロリティ' : 'Phi Sigma Rho — Sorority for Women in Engineering', location: ja ? 'フロリダ州ゲインズビル' : 'Gainesville, FL',
+                highlights: ja ? [
+                  '80名の会員向けに、公開済みのMERN Stackプラットフォームとモバイルアプリを開発するチームを率いています。',
+                  '自動通知、イベント管理、直感的なユーザーインターフェースなどの機能開発を統括しています。',
+                  'プロジェクトの進行を管理し、ロールベースのアクセスに対応するユーザー認証と管理機能を実装しています。',
+                ] : [
+                  'Directing a development team building a deployed MERN stack platform and mobile app for 80 members.',
+                  'Overseeing feature development, including automated notifications, event tracking, and intuitive user interfaces.',
+                  'Managing project timelines and implementing user authentication and administrative controls for role-based access.',
+                ],
+              },
+              {
+                id: 'social-affairs', title: ja ? '交流活動担当副会長' : 'Vice President of Social Affairs', category: ja ? 'リーダーシップ' : 'LEADERSHIP',
+                dates: ja ? '2025年5月〜2026年5月' : 'May 2025 – May 2026', organization: ja ? 'Phi Sigma Rho — 工学分野の女性のためのソロリティ' : 'Phi Sigma Rho — Sorority for Women in Engineering', location: ja ? 'フロリダ州ゲインズビル' : 'Gainesville, FL',
+                highlights: ja ? [
+                  '6名のイベント担当者を統括し、支部の主要イベント20件の実施と運営を管理しました。',
+                  '出席記録を管理し、相談時間を設け、執行部と連携してリスク管理に取り組みました。',
+                ] : [
+                  'Oversaw a team of six event chairs to deliver 20 major chapter events and coordinate event logistics.',
+                  'Maintained attendance records, held office hours, and coordinated risk management with chapter leadership.',
+                ],
+              },
+            ].map((item) => {
+              return <article className={`experience-entry has-photo reveal experience-${item.id}`} key={item.id}>
+                <div className="experience-content">
+                  <div className="experience-date"><span>{item.dates}</span></div>
+                  <p className="eyebrow">{item.category}</p>
+                  <h2>{item.title}</h2>
+                  <p className="experience-subtitle">{item.organization}<span className="experience-location">{item.location}</span></p>
+                  <div className="experience-story">
+                    <ul className="contributions">{item.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul>
+                  </div>
+                </div>
+                    {item.id === 'corrosion' && <figure className="experience-photo">
+                      <img src="/assets/corrosion-engineering.jpeg" width="1737" height="3088" loading="lazy" decoding="async" alt={ja ? '保護具を着用し、腐食試験ステーションを指すケイリシュッカート' : 'Kali Schuchhardt wearing protective equipment beside a corrosion test station'} />
+                    </figure>}
+                    {item.id === 'webmaster' && <figure className="experience-photo">
+                      <img src="/assets/webmaster.jpeg" width="3024" height="4032" loading="lazy" decoding="async" alt={ja ? 'パンプキンパッチでかぼちゃを抱えるケイリシュッカート' : 'Kali Schuchhardt holding a pumpkin at a pumpkin patch'} />
+                    </figure>}
+                    {item.id === 'social-affairs' && <figure className="experience-photo">
+                      <img src="/assets/vp-social-affairs.jpeg" width="3024" height="4032" loading="lazy" decoding="async" alt={ja ? 'Phi Rhoの光る文字と風船の前に立つケイリシュッカート' : 'Kali Schuchhardt beside illuminated Phi Rho letters and balloons'} />
+                    </figure>}
+              </article>;
+            })}
           </section>
         </main>
       ) : page === "about" ? (
